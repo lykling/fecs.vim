@@ -4,7 +4,7 @@ if !exists('g:fecs_autosave')
 endif
 
 if g:fecs_autosave
-    autocmd BufWritePre <buffer> call javascript#fecs#Check()
+    autocmd! BufWritePre <buffer> call javascript#fecs#Check()
 endif
 
 " vim:ts=4:sw=4:et

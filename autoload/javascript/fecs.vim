@@ -38,7 +38,7 @@ function! javascript#fecs#Check()
     " prevent an additional undo jump due to BufWritePre auto command and also
     " restore 'redo' history because it's getting being destroyed every
     " BufWritePre
-    let tmpundofile=tempname()
+    let l:tmpundofile=tempname()
     exe 'wundo! ' . tmpundofile
 
     " populate the final command with user based fmt options
@@ -86,7 +86,7 @@ function! javascript#fecs#Check()
 
     " restore our undo history
     silent! exe 'rundo ' . tmpundofile
-    call delete(tmpundofile)
+    call delete(l:tmpundofile)
 
     " restore our cursor/windows positions
     call delete(l:tmpname)
