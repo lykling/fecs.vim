@@ -31,7 +31,7 @@ function! javascript#fecs#Check()
     " needed for testing if fecs fails or not
     " fecs will ignore files which name isn't end of .js
     " (TODO) add support for css file
-    let l:tmpname=tempname() . '.js'
+    let l:tmpname=tempname() . "." . expand("%:e")
     call writefile(getline(1,'$'), l:tmpname)
 
     " save our undo file to be restored after we are done. This is needed to
