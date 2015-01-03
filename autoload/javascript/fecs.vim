@@ -65,12 +65,12 @@ function! javascript#fecs#Check()
         "otherwise get the errors and put them to quickfix window
         let errors = []
         for line in split(out, '\n')
-            let tokens = matchlist(line, '^\(.\{-}\)line\s*\(\d\+\),\s*col\s*\(\d\+\):\s*\(.*\)')
+            let tokens = matchlist(line, '^\(.\{-}\)line\s*\(\d\+\)\(,\s*col\s*\(\d\+\)\)*:\s*\(.*\)')
             if !empty(tokens)
                 call add(errors, {"filename": @%,
                             \"lnum":     tokens[2],
-                            \"col":      tokens[3],
-                            \"text":     tokens[4]})
+                            \"col":      tokens[4],
+                            \"text":     tokens[5]})
             endif
         endfor
         if empty(errors)
