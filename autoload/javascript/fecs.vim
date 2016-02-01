@@ -28,6 +28,11 @@ function! javascript#fecs#Check()
     " save cursor position and many other things
     let l:curw=winsaveview()
 
+    " Ignore json file
+    if expand("%:e") == 'json'
+        return 0
+    endif
+
     " needed for testing if fecs fails or not
     " fecs will ignore files which name isn't end of .js
     " (TODO) add support for css file
